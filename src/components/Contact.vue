@@ -29,7 +29,7 @@ const contactForm = reactive<ContactFormeProps>({
   firstName: "",
   lastName: "",
   email: "",
-  subject: "Web Development",
+  subject: "Хочу работать в студии",
   message: "",
 });
 
@@ -39,96 +39,88 @@ const handleSubmit = () => {
   const { firstName, lastName, email, subject, message } = contactForm;
   console.log(contactForm);
 
-  const mailToLink = `mailto:leomirandadev@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`;
+  const mailToLink = `mailto:lunera.studio@gmail.com?subject=${encodeURIComponent(
+    subject
+  )}&body=Здравствуйте! Меня зовут ${firstName} ${lastName}, мой email: ${email}.%0D%0A%0D%0A${encodeURIComponent(
+    message
+  )}`;
 
   window.location.href = mailToLink;
 };
 </script>
 
 <template>
-  <section
-    id="contact"
-    class="container py-24 sm:py-32"
-  >
+  <section id="contact" class="container py-24 sm:py-32">
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
         <div class="mb-4">
-          <h2 class="text-lg text-primary mb-2 tracking-wider">Contact</h2>
-
-          <h2 class="text-3xl md:text-4xl font-bold">Connect With Us</h2>
+          <h2 class="text-lg text-primary mb-2 tracking-wider">Контакты</h2>
+          <h2 class="text-3xl md:text-4xl font-bold">Свяжись с нами</h2>
         </div>
         <p class="mb-8 text-muted-foreground lg:w-5/6">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-          ipsam sint enim exercitationem ex autem corrupti quas tenetur
+          Остались вопросы? Хочешь присоединиться к студии? Заполни форму или свяжись с нами удобным способом.
         </p>
 
         <div class="flex flex-col gap-4">
           <div>
             <div class="flex gap-2 mb-1">
               <Building2 />
-              <div class="font-bold">Find Us</div>
+              <div class="font-bold">Наш адрес</div>
             </div>
-
-            <div>742 Evergreen Terrace, Springfield, IL 62704</div>
+            <div>Нови Сад, Сербия</div>
           </div>
 
           <div>
             <div class="flex gap-2 mb-1">
               <Phone />
-              <div class="font-bold">Call Us</div>
+              <div class="font-bold">Телефон</div>
             </div>
-
-            <div>+1 (619) 123-4567</div>
+            <div>+381 (62) 9651115</div>
           </div>
 
           <div>
             <div class="flex gap-2 mb-1">
               <Mail />
-              <div class="font-bold">Mail Us</div>
+              <div class="font-bold">Почта</div>
             </div>
-
-            <div>leomirandadev@gmail.com</div>
+            <div>lunera.studio@gmail.com</div>
           </div>
 
           <div>
             <div class="flex gap-2">
               <Clock />
-              <div class="font-bold">Visit Us</div>
+              <div class="font-bold">Часы работы</div>
             </div>
-
             <div>
-              <div>Monday - Friday</div>
-              <div>8AM - 4PM</div>
+              <div>Пн – Вс</div>
+              <div>00:00 – 00:00</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- form -->
+      <!-- Форма -->
       <Card class="bg-muted/60 dark:bg-card">
-        <CardHeader class="text-primary text-2xl"> </CardHeader>
+        <CardHeader class="text-primary text-2xl">Форма обратной связи</CardHeader>
         <CardContent>
-          <form
-            @submit.prevent="handleSubmit"
-            class="grid gap-4"
-          >
+          <form @submit.prevent="handleSubmit" class="grid gap-4">
             <div class="flex flex-col md:flex-row gap-8">
               <div class="flex flex-col w-full gap-1.5">
-                <Label for="first-name">First Name</Label>
+                <Label for="first-name">Имя</Label>
                 <Input
                   id="first-name"
                   type="text"
-                  placeholder="Leopoldo"
+                  placeholder="Анастасия"
                   v-model="contactForm.firstName"
                 />
               </div>
 
               <div class="flex flex-col w-full gap-1.5">
-                <Label for="last-name">Last Name</Label>
+                <Label for="last-name">Фамилия</Label>
                 <Input
                   id="last-name"
                   type="text"
-                  placeholder="Miranda"
+                  placeholder="Иванова"
                   v-model="contactForm.lastName"
                 />
               </div>
@@ -139,61 +131,49 @@ const handleSubmit = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="leomirandadev@gmail.com"
+                placeholder="example@mail.com"
                 v-model="contactForm.email"
               />
             </div>
 
             <div class="flex flex-col gap-1.5">
-              <Label for="subject">Subject</Label>
-
+              <Label for="subject">Тема обращения</Label>
               <Select v-model="contactForm.subject">
                 <SelectTrigger>
-                  <SelectValue placeholder="Select a subject" />
+                  <SelectValue placeholder="Выберите тему" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="Web Development">
-                      Web Development
-                    </SelectItem>
-                    <SelectItem value="Mobile Development">
-                      Mobile Development
-                    </SelectItem>
-                    <SelectItem value="Figma Design"> Figma Design </SelectItem>
-                    <SelectItem value="REST API "> REST API </SelectItem>
-                    <SelectItem value="FullStack Project">
-                      FullStack Project
-                    </SelectItem>
+                    <SelectItem value="Хочу работать в студии">Хочу работать в студии</SelectItem>
+                    <SelectItem value="Сотрудничество">Сотрудничество</SelectItem>
+                    <SelectItem value="Вопрос по условиям">Вопрос по условиям</SelectItem>
+                    <SelectItem value="Другое">Другое</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
             </div>
 
             <div class="flex flex-col gap-1.5">
-              <Label for="message">Message</Label>
+              <Label for="message">Сообщение</Label>
               <Textarea
                 id="message"
-                placeholder="Your message..."
+                placeholder="Напишите, что вас интересует..."
                 rows="5"
                 v-model="contactForm.message"
               />
             </div>
 
-            <Alert
-              v-if="invalidInputForm"
-              variant="destructive"
-            >
+            <Alert v-if="invalidInputForm" variant="destructive">
               <AlertCircle class="w-4 h-4" />
-              <AlertTitle>Error</AlertTitle>
+              <AlertTitle>Ошибка</AlertTitle>
               <AlertDescription>
-                There is an error in the form. Please check your input.
+                Пожалуйста, проверьте правильность заполнения формы.
               </AlertDescription>
             </Alert>
 
-            <Button class="mt-4">Send message</Button>
+            <Button class="mt-4">Отправить сообщение</Button>
           </form>
         </CardContent>
-
         <CardFooter></CardFooter>
       </Card>
     </section>

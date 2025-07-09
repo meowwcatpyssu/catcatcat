@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ChevronsDown } from "lucide-vue-next";
 import Separator from "./ui/separator/Separator.vue";
 </script>
 
@@ -9,155 +8,48 @@ import Separator from "./ui/separator/Separator.vue";
     class="container py-24 pb-16 sm:py-32 sm:pb-24"
   >
     <div class="p-10 bg-muted/50 dark:bg-card border rounded-2xl">
-      <div
-        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8"
-      >
-        <div class="col-span-full xl:col-span-2">
-          <a
-            href="#"
-            class="flex font-bold items-center"
-          >
-            <ChevronsDown
-              class="bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
-            />
-
-            <h3 class="text-2xl">Shadcn-Vue</h3>
-          </a>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left md:text-left">
+        <!-- Колонка 1: Название -->
+        <div class="flex items-center font-bold text-2xl">
+          Lunera Studio
         </div>
 
-        <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-lg">Contact</h3>
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Github
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Twitter
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Instagram
-            </a>
-          </div>
+        <!-- Колонка 2: Контакты -->
+        <div>
+          <h3 class="font-bold mb-4">Контакты</h3>
+          <ul class="space-y-2 opacity-60 hover:opacity-100 transition-opacity">
+            <li>
+              <a href="mailto:lunera.studio@gmail.com">lunera.studio@gmail.com</a>
+            </li>
+            <li>
+              <a href="https://t.me/lunera_admin" target="_blank">Связаться: @lunera_admin</a>
+            </li>
+          </ul>
         </div>
 
-        <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-lg">Platforms</h3>
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              iOS
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Android
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Web
-            </a>
-          </div>
+        <!-- Колонка 3: Telegram-канал -->
+        <div>
+          <h3 class="font-bold mb-4">Telegram</h3>
+          <ul class="space-y-2 opacity-60 hover:opacity-100 transition-opacity">
+            <li>
+              <a href="https://t.me/lunerastudio" target="_blank">Telegram-канал: @lunerastudio</a>
+            </li>
+          </ul>
         </div>
 
-        <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-lg">Help</h3>
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Contact Us
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              FAQ
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Feedback
-            </a>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-lg">Socials</h3>
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Twitch
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Dribbble
-            </a>
-          </div>
+        <!-- Колонка 4: Можно добавить что-то ещё или убрать -->
+        <div>
+          <h3 class="font-bold mb-4">Прочее</h3>
+          <ul class="space-y-2 opacity-60 hover:opacity-100 transition-opacity">
+            <li>—</li>
+          </ul>
         </div>
       </div>
 
       <Separator class="my-6" />
-      <section className="">
-        <h3 class="">
-          &copy; 2024 Designed and developed by
-          <a
-            target="_blank"
-            href="https://github.com/leoMirandaa"
-            className="text-primary transition-all border-primary hover:border-b-2"
-          >
-            Leo Miranda
-          </a>
-        </h3>
+
+      <section class="text-sm text-muted-foreground text-center">
+        &copy; 2025 Lunera Studio. Все права защищены.
       </section>
     </div>
   </footer>

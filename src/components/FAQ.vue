@@ -14,47 +14,74 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: "Is this template free?",
-    answer: "Yes. It is a free Shadcn/Vue template.",
     value: "item-1",
+    question: "ЧТО НУЖНО ДЛЯ НАЧАЛА РАБОТЫ?",
+    answer:
+      "Просто напиши нам в Telegram или на почту — мы быстро свяжемся с тобой и расскажем все детали. Поможем на каждом этапе, даже если у тебя нет опыта.",
   },
   {
-    question: "Duis aute irure dolor in reprehenderit in voluptate velit?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam consectetur sapiente, iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
     value: "item-2",
-  },
-  {
-    question:
-      "Lorem ipsum dolor sit amet Consectetur natus dolor minus quibusdam?",
+    question: "КАК НАСЧЁТ ОТПУСКОВ И УВОЛЬНЕНИЯ?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis.",
+      "Ты можешь брать отпуск каждые 3 месяца — без штрафов и давления. Если захочешь завершить сотрудничество, достаточно предупредить нас за 2 недели. После увольнения все аккаунты удаляются, а заработанные средства и бонусы выплачиваются в полном объёме.",
+  },
+  {
     value: "item-3",
+    question: "ЕСТЬ ЛИ ШТРАФЫ?",
+    answer:
+      "Нет. Мы не применяем штрафные санкции. Важнее всего — твой комфорт и желание развиваться.",
   },
   {
-    question: "Excepteur sint occaecat cupidata non proident sunt?",
-    answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     value: "item-4",
+    question: "КАК И КУДА ПРИХОДИТ ЗАРПЛАТА?",
+    answer:
+      "Выплаты происходят еженедельно. Деньги поступают в евро по текущему курсу. Для новичков предусмотрены авансы:\n1-я неделя — можно забирать всю сумму сразу после смены;\n2–3-я неделя — доступно 50% от заработка сразу после смены.",
   },
   {
-    question:
-      "Enim ad minim veniam, quis nostrud exercitation ullamco laboris?",
-    answer: "consectetur adipisicing elit. Sint labore.",
     value: "item-5",
+    question: "МОГУТ ЛИ МЕНЯ УВОЛИТЬ ЗА НИЗКИЕ ЗАРАБОТКИ?",
+    answer:
+      "Увольнение возможно только при длительном отсутствии вовлечённости, игнорировании рекомендаций команды и стабильно низких результатах. Если ты хочешь расти и работать — мы всегда поддержим.",
+  },
+  {
+    value: "item-6",
+    question: "ДЕЛАЕТЕ ЛИ ВЫ ПРОДВИЖЕНИЕ АККАУНТОВ?",
+    answer:
+      "Да! Мы занимаемся активным продвижением моделей на Stripchat и Chaturbate. Ты получишь дополнительный трафик, советы по контенту и поддержку в развитии личного бренда.",
+  },
+  {
+    value: "item-7",
+    question: "ЧТО С ЗАРАБОТКОМ НА СТАРТЕ?",
+    answer:
+      "Важно понимать: большой доход не приходит сразу. Чтобы выйти на стабильный уровень — нужно наладить регулярность эфиров, активно взаимодействовать с аудиторией и развивать контент.",
+  },
+  {
+    value: "item-8",
+    question: "МОТИВАЦИЯ И УВЕРЕННОСТЬ",
+    answer:
+      "Первые шаги могут быть непростыми. Неуверенность — это нормально. Главное — не останавливаться. С каждой трансляцией ты будешь становиться увереннее, сильнее и опытнее.",
+  },
+  {
+    value: "item-9",
+    question: "ЧТО ДЕЛАТЬ, ЕСЛИ НЕ ПОЛУЧАЕТСЯ ПРИВЛЕЧЬ ЗРИТЕЛЕЙ?",
+    answer:
+      "Попробуй изменить расписание эфиров, поэкспериментируй с образом и стилем общения, используй соцсети и фан-сервисы. Мы всегда поможем с анализом и стратегией.",
+  },
+  {
+    value: "item-10",
+    question: "ЕСЛИ СТАНЕТ ПЛОХО ПСИХОЛОГИЧЕСКИ?",
+    answer:
+      "Не замыкайся в себе. Обратись к администраторам, коллегам или за внешней психологической поддержкой. Мы ценим твоё состояние и здоровье не меньше, чем профессиональные результаты.",
   },
 ];
 </script>
 
 <template>
-  <section
-    id="faq"
-    class="container md:w-[700px] py-24 sm:py-32"
-  >
+  <section id="faq" class="container md:w-[700px] py-24 sm:py-32">
     <div class="text-center mb-8">
-      <h2 class="text-lg text-primary text-center mb-2 tracking-wider">FAQS</h2>
-
+      <h2 class="text-lg text-primary text-center mb-2 tracking-wider">Частые вопросы</h2>
       <h2 class="text-3xl md:text-4xl text-center font-bold">
-        Common Questions
+        Ответы на самые важные вопросы
       </h2>
     </div>
 
@@ -68,24 +95,14 @@ const FAQList: FAQProps[] = [
         :key="value"
         :value="value"
       >
-        <AccordionTrigger class="text-left"> {{ question }} </AccordionTrigger>
+        <AccordionTrigger class="text-left whitespace-pre-line">
+          {{ question }}
+        </AccordionTrigger>
 
-        <AccordionContent>{{ answer }}</AccordionContent>
+        <AccordionContent class="whitespace-pre-line">
+          {{ answer }}
+        </AccordionContent>
       </AccordionItem>
     </Accordion>
-
-    <h3 class="font-medium mt-4">
-      Still have questions?
-      <a
-        href="#"
-        class="text-muted-foreground"
-      >
-        <a
-          href="#"
-          class="underline"
-          >Contact us</a
-        >
-      </a>
-    </h3>
   </section>
 </template>

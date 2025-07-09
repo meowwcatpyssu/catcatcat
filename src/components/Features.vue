@@ -20,40 +20,40 @@ interface FeaturesProps {
 
 const featureList: FeaturesProps[] = [
   {
-    icon: "tabletSmartphone",
-    title: "Mobile Friendly",
+    icon: "paintbrush",
+    title: "Ты — бренд, не просто модель",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.",
-  },
-  {
-    icon: "badgeCheck",
-    title: "Social Proof",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.",
+      "Мы помогаем тебе выстроить личный стиль и голос, чтобы ты запоминалась, выделялась и управляла своей аудиторией как профессионал.",
   },
   {
     icon: "goal",
-    title: "Targeted Content",
+    title: "Развитие вне камеры",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.",
-  },
-  {
-    icon: "pictureInPicture",
-    title: "Strong Visuals",
-    description:
-      "Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.",
+      "Спа, психология, английский, финансовая грамотность — мы растим не только аккаунты, но и личности.",
   },
   {
     icon: "mousePointerClick",
-    title: "Clear CTA",
+    title: "Ты управляешь процессом",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.",
+      "Никакого микроменеджмента. Ты выбираешь темп, стиль и подход. А мы просто помогаем тебе быть эффективной.",
   },
   {
-    icon: "newspaper",
-    title: "Clear Headline",
+    icon: "badgeCheck",
+    title: "Меньше конкуренции — больше фокуса",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.",
+      "Мы не набираем моделей массово. Качественная поддержка возможна только в небольших, сильных командах.",
+  },
+  {
+    icon: "tabletSmartphone",
+    title: "Контент без давления",
+    description:
+      "Никаких «делай вот это, иначе не заработаешь». Только то, что комфортно тебе. Наши модели не перегорают.",
+  },
+  {
+    icon: "messageCircle",
+    title: "Мы не просто говорим, мы слушаем",
+    description:
+      "Ты всегда можешь высказаться — и тебя услышат. Мы строим диалог, а не диктуем сверху.",
   },
 ];
 
@@ -80,22 +80,18 @@ const iconMap: Record<
 </script>
 
 <template>
-  <section
-    id="features"
-    class="container py-24 sm:py-32"
-  >
+  <section id="features" class="container py-24 sm:py-32">
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      Features
+      Почему мы — это другое
     </h2>
 
     <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      What Makes Us Different
+      Осознанный подход к вебкаму
     </h2>
 
     <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
-      fugiat, odit similique quasi sint reiciendis quidem iure veritatis optio
-      facere tenetur.
+      Lunera Studio — это не про поток. Это про ценность, развитие и уважение.
+      Мы работаем с тобой, а не над тобой.
     </h3>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -113,10 +109,7 @@ const iconMap: Record<
                 class="size-6 text-primary"
               />
             </div>
-
-            <CardTitle>
-              {{ title }}
-            </CardTitle>
+            <CardTitle class="text-center">{{ title }}</CardTitle>
           </CardHeader>
 
           <CardContent class="text-muted-foreground text-center">
@@ -128,4 +121,4 @@ const iconMap: Record<
   </section>
 </template>
 
-<style lang="less" scoped></style>
+<style scoped></style>

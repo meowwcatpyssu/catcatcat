@@ -19,30 +19,56 @@ interface BenefitsProps {
 const benefitList: BenefitsProps[] = [
   {
     icon: "blocks",
-    title: "Build Brand Trust",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+    title: "Гибкий процент",
+    description: "Ты сможешь повысить свой процент с 50% уже с первых смен.",
   },
   {
     icon: "lineChart",
-    title: "More Leads",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.",
+    title: "Выбор смены",
+    description: "Гибкое расписание: смены начинаются от 6 часов днем и ночью.",
   },
   {
     icon: "wallet",
-    title: "Higher Conversions",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam",
+    title: "Комфортные условия",
+    description: "Профессиональное оборудование и уютные, просторные стримерские комнаты.",
   },
   {
     icon: "sparkle",
-    title: "Test Marketing Ideas",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+    title: "Поддержка 24/7",
+    description: "Техническая и психологическая помощь в любое время, когда тебе это нужно.",
+  },
+  {
+    icon: "tag",
+    title: "Забота о здоровье",
+    description: "Визиты к дерматологу, косметологу и регулярные спа-процедуры каждые 3 месяца.",
+  },
+  {
+    icon: "paintbrush",
+    title: "Обучение и развитие",
+    description: "Обучение от основ до мастерства, мастер-классы и консультации с экспертами.",
+  },
+  {
+    icon: "sparkle",
+    title: "Индивидуальный подход",
+    description: "Работаем по твоим целям и амбициям, строим долгосрочное сотрудничество.",
+  },
+  {
+    icon: "wallet",
+    title: "Конфиденциальность и безопасность",
+    description: "Полная защита данных и удаление информации из поисковых систем.",
+  },
+  {
+    icon: "lineChart",
+    title: "Ведение соцсетей",
+    description: "Мы полностью ведём твои соцсети (OnlyFans, Fansly, Instagram и др.) под твоим контролем.",
+  },
+  {
+    icon: "blocks",
+    title: "Языковые курсы",
+    description: "Курсы английского языка для уверенного общения и карьерного роста.",
   },
 ];
-
+  
 const iconMap: Record<
   string,
   | typeof Sparkle
@@ -68,15 +94,13 @@ const iconMap: Record<
   >
     <div class="grid lg:grid-cols-2 place-items-center lg:gap-24">
       <div>
-        <h2 class="text-lg text-primary mb-2 tracking-wider">Benefits</h2>
+        <h2 class="text-lg text-primary mb-2 tracking-wider">Условия</h2>
 
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Your Shortcut to Success
+          Всё для твоего комфорта и развития
         </h2>
         <p class="text-xl text-muted-foreground mb-8">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non ducimus
-          reprehenderit architecto rerum similique facere odit deleniti
-          necessitatibus quo quae.
+          Lunera Studio создаёт условия, в которых ты можешь работать, развиваться и чувствовать себя уверенно каждый день.
         </p>
       </div>
 
@@ -95,8 +119,9 @@ const iconMap: Record<
 
               <span
                 class="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30"
-                >0{{ index + 1 }}</span
               >
+                0{{ index + 1 }}
+              </span>
             </div>
 
             <CardTitle>{{ title }}</CardTitle>

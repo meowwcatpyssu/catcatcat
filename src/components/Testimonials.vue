@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 
 import {
@@ -17,128 +15,87 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { Star } from "lucide-vue-next";
-
-interface ReviewProps {
-  image: string;
-  name: string;
-  userName: string;
-  comment: string;
-  rating: number;
+interface QuoteProps {
+  author: string;
+  source: string;
+  quote: string;
 }
 
-const reviewList: ReviewProps[] = [
+const classicQuotes: QuoteProps[] = [
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe",
-    userName: "Product Manager",
-    comment:
-      "Wow Vue + Shadcn-Vue is awesome!. This template lets me change colors, fonts and images to match my brand identity. ",
-    rating: 5.0,
+    author: "Марсель Пруст",
+    source: "В поисках утраченного времени",
+    quote:
+      "Истинное путешествие открытий не в том, чтобы искать новые земли, а в том, чтобы смотреть на мир новыми глазами.",
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Sophia Collins",
-    userName: "Cybersecurity Analyst",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ",
-    rating: 4.8,
-  },
-
-  {
-    image: "https://github.com/shadcn.png",
-    name: "Adam Johnson",
-    userName: "Chief Technology Officer",
-    comment:
-      "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    rating: 4.9,
+    author: "Вирджиния Вулф",
+    source: "Собственная комната",
+    quote:
+      "Женщине нужно немного денег и собственная комната, если она собирается писать прозу.",
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ethan Parker",
-    userName: "Data Scientist",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    rating: 5.0,
+    author: "Шарлотта Бронте",
+    source: "Джейн Эйр",
+    quote:
+      "Я не птица и никакая сеть не удержит меня: я — свободное человеческое существо с независимой волей.",
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ava Mitchell",
-    userName: "IT Project Manager",
-    comment:
-      "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud incididunt consectetur adipiscing elit.",
-    rating: 5.0,
+    author: "Оскар Уайльд",
+    source: "Портрет Дориана Грея",
+    quote:
+      "Тайна жизни — в поиске красоты. Не стыдись желать того, что делает тебя живой.",
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Isabella Reed",
-    userName: "DevOps Engineer",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    rating: 4.9,
+    author: "Гюстав Флобер",
+    source: "Мадам Бовари",
+    quote:
+      "Она жаждала любви как цветок света. Душа её алкала волнений, восторгов, страстей.",
+  },
+  {
+    author: "Лев Толстой",
+    source: "Анна Каренина",
+    quote:
+      "Любовь — это жизнь. Всё, что я понимаю, я понимаю только потому, что люблю.",
   },
 ];
 </script>
 
 <template>
   <section
-    id="testimonials"
+    id="classic-quotes"
     class="container py-24 sm:py-32"
   >
     <div class="text-center mb-8">
-      <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-        Testimonials
-      </h2>
-
-      <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-        Hear What Our 1000+ Clients Say
+      <h2 class="text-lg text-primary tracking-wider mb-2">Мотивация и вдохновение</h2>
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Голоса классики о свободе, женственности и поиске себя
       </h2>
     </div>
 
     <Carousel
-      :opts="{
-        align: 'start',
-      }"
-      class="relative w-[80%] sm:w-[90%] lg:max-w-screen-xl mx-auto"
+      :opts="{ align: 'start' }"
+      class="w-[90%] lg:max-w-screen-xl mx-auto"
     >
       <CarouselContent>
         <CarouselItem
-          v-for="review in reviewList"
-          :key="review.name"
+          v-for="quote in classicQuotes"
+          :key="quote.quote"
           class="md:basis-1/2 lg:basis-1/3"
         >
-          <Card class="bg-muted/50 dark:bg-card">
-            <CardContent class="pt-6 pb-0">
-              <div class="flex gap-1 pb-6">
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
-              </div>
-
-              "{{ review.comment }}"
+          <Card class="bg-muted/50 dark:bg-card h-full">
+            <CardContent class="py-6 px-6 italic text-lg">
+              “{{ quote.quote }}”
             </CardContent>
 
             <CardHeader>
-              <div class="flex flex-row items-center gap-4">
-                <Avatar>
-                  <AvatarImage
-                    src="https://www.radix-vue.com/logo.svg"
-                    alt="@radix-vue"
-                  />
-                  <AvatarFallback>SV</AvatarFallback>
-                </Avatar>
-
-                <div class="flex flex-col">
-                  <CardTitle class="text-lg">{{ review.name }}</CardTitle>
-                  <CardDescription>{{ review.userName }}</CardDescription>
-                </div>
-              </div>
+              <CardTitle class="text-base">{{ quote.author }}</CardTitle>
+              <CardDescription>из книги «{{ quote.source }}»</CardDescription>
             </CardHeader>
           </Card>
         </CarouselItem>
       </CarouselContent>
+
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>

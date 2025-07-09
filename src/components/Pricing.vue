@@ -11,64 +11,58 @@ import {
 
 import { Check } from "lucide-vue-next";
 
-enum PopularPlan {
-  NO = 0,
-  YES = 1,
+enum Stage {
+  START = 0,
+  GROWTH = 1,
+  LEADER = 2,
 }
 
-interface PlanProps {
+interface PathProps {
   title: string;
-  popular: PopularPlan;
-  price: number;
+  stage: Stage;
   description: string;
   buttonText: string;
   benefitList: string[];
 }
 
-const plans: PlanProps[] = [
+const paths: PathProps[] = [
   {
-    title: "Free",
-    popular: 0,
-    price: 0,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Start Free Trial",
+    title: "Первый шаг",
+    stage: Stage.START,
+    description: "Твоя первая трансляция, первые подписчики и уверенность в себе.",
+    buttonText: "Начать с нами",
     benefitList: [
-      "1 team member",
-      "1 GB storage",
-      "Upto 2 pages",
-      "Community support",
-      "AI assistance",
+      "Обучение с нуля",
+      "Наставник на связи 24/7",
+      "Полная анонимность",
+      "Съёмка портфолио",
+      "Поддержка на каждом этапе",
     ],
   },
   {
-    title: "Premium",
-    popular: 1,
-    price: 45,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Get starterd",
+    title: "Развитие",
+    stage: Stage.GROWTH,
+    description: "Ты уже знаешь платформу. Время масштабироваться и зарабатывать больше.",
+    buttonText: "Прокачать карьеру",
     benefitList: [
-      "4 team member",
-      "8 GB storage",
-      "Upto 6 pages",
-      "Priority support",
-      "AI assistance",
+      "Создание личного бренда",
+      "Работа с фан-сервисами",
+      "Рост процента выплат",
+      "Продвижение аккаунтов",
+      "Регулярные бонусы и SPA",
     ],
   },
   {
-    title: "Enterprise",
-    popular: 0,
-    price: 120,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+    title: "Топ модель",
+    stage: Stage.LEADER,
+    description: "Ты уверена, стабильна и вдохновляешь других. Мы вместе создаём результат.",
+    buttonText: "Стать лидером",
     benefitList: [
-      "10 team member",
-      "20 GB storage",
-      "Upto 10 pages",
-      "Phone & email support",
-      "AI assistance",
+      "Наставничество другим моделям",
+      "Повышенные бонусы",
+      "Управленческая должность",
+      "Премиальные фотосессии",
+      "Путешествия и ретриты",
     ],
   },
 ];
@@ -77,46 +71,35 @@ const plans: PlanProps[] = [
 <template>
   <section class="container py-24 sm:py-32">
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      Pricing
+      Твои возможности
     </h2>
 
     <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      Get unlimitted access
+      Путь развития в Lunera Studio
     </h2>
 
-    <h3
-      class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14"
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing reiciendis.
+    <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14">
+      У нас нет «тарифов». Есть только твой рост. С каждой ступенью — больше уверенности, больше дохода и поддержки.
     </h3>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
       <Card
         v-for="{
           title,
-          popular,
-          price,
+          stage,
           description,
           buttonText,
           benefitList,
-        } in plans"
+        } in paths"
         :key="title"
         :class="{
-          'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]':
-            popular === PopularPlan?.YES,
+          'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.05]':
+            stage === Stage.GROWTH,
         }"
       >
         <CardHeader>
-          <CardTitle class="pb-2">
-            {{ title }}
-          </CardTitle>
-
+          <CardTitle class="pb-2">{{ title }}</CardTitle>
           <CardDescription class="pb-4">{{ description }}</CardDescription>
-
-          <div>
-            <span class="text-3xl font-bold">${{ price }}</span>
-            <span class="text-muted-foreground"> /month</span>
-          </div>
         </CardHeader>
 
         <CardContent class="flex">
@@ -124,18 +107,19 @@ const plans: PlanProps[] = [
             <span
               v-for="benefit in benefitList"
               :key="benefit"
-              class="flex"
+              class="flex items-start"
             >
-              <Check class="text-primary mr-2" />
-              <h3>{{ benefit }}</h3>
+              <Check class="text-primary mr-2 mt-1" />
+              <span>{{ benefit }}</span>
             </span>
           </div>
         </CardContent>
 
         <CardFooter>
           <Button
-            :variant="popular === PopularPlan?.NO ? 'secondary' : 'default'"
+            variant="default"
             class="w-full"
+            @click="() => window.open('https://t.me/lunera_admin', '_blank')"
           >
             {{ buttonText }}
           </Button>
